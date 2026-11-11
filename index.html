@@ -2225,7 +2225,8 @@ const save = () => { persist(); pushSoon() };
 // file stays self-contained. Opened as a file or inside a frame (like a preview) the sign-in redirect can't work, so it's hidden.
 const SB = "https://zkmuhmthhjhmleddkyuv.supabase.co", SB_KEY = "sb_publishable_Xum4VeepI3KcNvulkLzDlA_RFlR9l9C";
 const AUTH = "medguess:auth";  // kept apart from progress so tokens never end up in a backup code
-const canSignIn = window.top === window && (location.protocol === "https:" || location.hostname === "localhost");
+// ponytail: sign-in off until the Supabase Google provider and progress table exist; delete "false &&" to bring it back.
+const canSignIn = false && window.top === window && (location.protocol === "https:" || location.hostname === "localhost");
 const SYNC_FAIL = "Couldn't sync. It'll try again later.";
 let auth = (() => { try { return JSON.parse(localStorage.getItem(AUTH)) } catch { return null } })();
 let syncState = "", pulledAt = 0, pushTimer = null;
